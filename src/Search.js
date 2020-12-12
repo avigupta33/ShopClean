@@ -1,7 +1,12 @@
 import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
+
+
 var officialmsg= 'Deafult';
+var targetCategories = [
+
+]
 var companies = ['Acer',
     'Adidas',
     'Alstom',
@@ -70,6 +75,8 @@ export class Search extends React.Component {
       this.setState({value: event.target.value});
     }
 
+    
+
     async getData() {
       // prints the brand to console  using link 
       const axios = require('axios');
@@ -81,27 +88,32 @@ export class Search extends React.Component {
         url: this.state.value,
       }
 
-      // make the http GET request to Rainforest API
-    //   const data = await axios.get('https://api.rainforestapi.com/request', { params })
-    //   .then(response => {
-    //     // print the JSON response from Rainforest API
-    //     var brand = response.data["product"]["brand"];
-    //     var category = response.data["product"]["categories"][0]["name"];
-    //     console.log(category);
-    //     this.setState({category: category});
-    //     this.setState({brand: brand});
-    //     console.log("Inside thhe vent");
-    //     //console.log(this.state);
-    //     this.updateStuff();
-    //   }).catch(error => {
-    //     // catch and print the error
-       
-    //   })
+      // solution
+      // onload get active url javascript
 
-    var brand = "Nike";
-    var category = "Shoes";
-    this.setState({category: category});
-    this.setState({brand: brand});
+
+      // make the http GET request to Rainforest API
+      const data = await axios.get('https://api.rainforestapi.com/request', { params })
+      .then(response => {
+        // print the JSON response from Rainforest API
+        var brand = response.data["product"]["brand"];
+        var categories = response.data["product"]["categories"];
+        var category = categories[categories.length - 1]["name"];
+        console.log(category);
+        this.setState({category: category});
+        this.setState({brand: brand});
+        console.log("Inside thhe vent");
+        //console.log(this.state);
+        this.updateStuff();
+      }).catch(error => {
+        // catch and print the error
+       
+      })
+
+    // var brand = "Nike";
+    // var category = "Shoes";
+    // this.setState({category: category});
+    // this.setState({brand: brand});
       // undefined 
       console.log("hi")
       //return data; 
@@ -124,8 +136,13 @@ export class Search extends React.Component {
     }
 
     handleSubmit(event) {
-        var result = this.getData();
-        event.preventDefault();
+        
+        if(this.state.value !== '' || this.state.value !== undefined)
+        {
+            var result = this.getData();
+            event.preventDefault();
+        }
+        
     }
     
    
@@ -137,7 +154,24 @@ export class Search extends React.Component {
     // suggest 5 items
     // Fetch 'em from rainforest api
     // Make whole new component
+
+    // componentDidMount(){
+    //   console.log("hi")
+    //   console.log(window.location.href)
+
+    // //   chrome.tabs.getSelected(null,function(tab) {
+    // //     var tablink = tab.url;
+    // // });
+    // //   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
+    // //     let url = tabs[0].url;
+    // //     // use `url` here inside the callback because it's asynchronous!
+    // // });  
+  // }
+
+
     render() {
+
+
      
       return (
         <div> 
@@ -153,8 +187,9 @@ export class Search extends React.Component {
           <p >{this.state.msg}</p>
           <p>{this.state.category}</p>
           <SuggestionFeed 
-            category='Shoe'
-            brand= {this.state.brand} />
+            category={this.state.category}
+            brand= {this.state.brand}
+            companies= {companies}/>
         
         </div>
       );

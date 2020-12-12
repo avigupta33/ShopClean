@@ -3,16 +3,25 @@
 
 .App {
   text-align: center;
+  background-color: #cce7e8;
+  
 }
 
 .App-logo {
-  width: 175px;
+  width: 100px;
+  
+  padding-top: 50px;
+  display: inline-block;
   pointer-events: none;
 }
+
 .shopCleanHead {
+  display: inline-block;
   font-family: 'Comfortaa';
   font-weight: 400;
-  font-size: 40px;
+  float: white;
+  font-size: 70px;
+  padding: 20px;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -21,7 +30,7 @@
   }
 } */
 
-.App-header {
+/* .App-header {
   background-color: #cce7e8;
   min-height: 100vh;
   display: flex;
@@ -30,7 +39,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;

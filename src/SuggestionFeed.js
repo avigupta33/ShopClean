@@ -5,15 +5,21 @@
 import React from 'react';
 import Suggestion from './Suggestion';
 import sample from './data/sample_output.json'
+import { Carousel, Image } from '@fluentui/react-northstar'
 
+// TODO 
 
 // suggesstion props structure
 // props {
-//     url: '', [0].link
+//     imageUrl: '', [0].image,
+// /     link: [0].link,
 //     title: '', [0].title
 //     price: '', [0].ratings
     
 // }
+
+
+/// DUMMY DATA DONT BE CONFUSED 
 
 const bigSampleData = {"search_results": [
     {
@@ -212,7 +218,7 @@ class SuggestionFeed extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        giantData: [],
+        giantData: bigSampleData.search_results,
       };
     }
     
@@ -223,13 +229,21 @@ class SuggestionFeed extends React.Component {
     }
 
 	async getData() {
-        const axios = require('axios');
-        console.log("Setting state");
+        // const axios = require('axios');
+        // console.log("Setting state");
         
-        await this.setState({giantData: bigSampleData.search_results});
+        // // await this.setState({giantData: bigSampleData.search_results});
         
-        console.log(this.state.giantData[0].title)
-		// set up the request parameters
+        // // console.log(this.state.giantData[0].title)
+
+        // ///
+
+        // console.log("THIS IS VEYR IMPORTANT");
+        // console.log("THIS IS VEYR IMPORTANT");
+        // console.log(this.props.category);
+
+        // if(this.props.category != ''){
+        //     // set up the request parameters
 		// const params = {
 		// 	api_key: "541AA8716959427CAFC720D5B7149B78",
 		// 	amazon_domain: "amazon.com",
@@ -252,44 +266,92 @@ class SuggestionFeed extends React.Component {
         // 	});
         
 
-        // everything below is unused code
+        //     this.manipulateData();
 
-			//fs.readFile('sample_output.json', 'utf8', (err, data) => {
-			//	if (err) {
-			//		console.log(err);
-			//	}
-			//	console.log(data)
-			//});
-			//var response = require('./sample_output.json');
-			// var response = sample
-            // console.log(sample);
-            this.manipulateData();
-	}
+        // } 
 
-	componentDidMount() {
-		this.getData();
+        //this.setState({giantData: bigSampleData});
+		
+  }
+  //Removes unethical products from list
+//   filterData() { 
+//     this.state.giantData.forEach((item, index) => { 
+//       var found = this.props.some((company => 
+//         (item.brand.toLowerCase()).includes(company.toLowerCase())));
+//     });
+//     var brand = "kenny";
+
+//       if (true) {
+//         this.setState({msg: "Unfortunately, this item was made using forced labor. Here are some alternatives"}); 
+//       }
+//       else {
+//         this.setState({msg: "this comp is chill"});
+//       }
+//   }
+
+    componentDidUpdate() 
+    {
+        // if((this.props.category !== '' || this.props.category !== undefined) 
+        //   && this.state.giantData == [])
+        // {
+        //     this.getData();
+        // }
         
+
+        this.setState({giantData: bigSampleData.search_results});
+        console.log(this.state.giantData)
     
-	}
+    }
+    
+    shortenLength(inputString)
+    {
+        if(inputString.length < 60 )
+        {
+            return;
+        }
+        inputString.length = 60;
+        inputString += "...";
+
+    }
 
 
 
     render() {
 		var list = this.state.giantData.map((object) => {
-			return(
-				<div>
-					<p>{object.position}</p>
-                    <Suggestion url={object.image} title={object.title} price={1}/>
-				</div>
-			)
+            if(object.price[0] == undefined || object.price == undefined || object.price[0].value == undefined) {
+              return(
+                <div key={object.position}>
+                  <p>{object.position}</p>
+                            <Suggestion url={object.image} title={object.title} price={object.prices[0].value} link={object.link}/>
+                </div>
+              )
+            } else {
+                return(
+                    <div key={object.position}>
+                        <p>{object.position}</p>
+                        <Suggestion url={object.image} title={object.title} price={"none available"} link={object.link}/>
+                    </div>
+                )
+            }
 		})
         // pass hard coded data for now
         return (
-            
-            
-            <div>
-                {list}
-            </div>
+          <Carousel
+          circular
+          ariaRoleDescription="carousel"
+          ariaLabel="Portrait collection"
+          navigation={{
+            'aria-label': 'people portraits',
+            items: list.map((item, index) => ({
+              key: index,
+              'aria-controls': item.id,
+              'aria-label': item.key,
+            })),
+          }}
+          items={list}
+          getItemPositionText={(index, size) => `${index + 1} of ${size}`}
+          />
+
         );
     }
 }

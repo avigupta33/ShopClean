@@ -19,10 +19,14 @@ class Suggestion extends React.Component {
     render() {
         console.log(this.props.url);
         return (
-            <div>
-                <img src={this.props.url}/>
-                <h1> <a>{this.props.title} </a> </h1>
-                <h2>{this.props.price} </h2>
+            <div className="wrapper">
+            <div className="itemDiv">
+                <a href={this.props.link}>
+                <h1 className="ItemTitle"> {this.props.title} </h1>
+                <img src={this.props.url} className="previewImg"/>
+                <h2>${this.props.price} </h2>
+                </a>
+            </div>
             </div>
         );
     }
