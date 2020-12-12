@@ -1,5 +1,6 @@
 import React from 'react';
 import Suggestion from './Suggestion.js';
+import SuggestionFeed from './SuggestionFeed.js';
 var officialmsg= 'Deafult';
 var companies = ['Acer',
     'Adidas',
@@ -56,8 +57,9 @@ export class Search extends React.Component {
       super(props);
       this.state = {
         value: '', 
-        msg: '',
-        brand: 'empty'
+        msg: 'placeholder text. this text states whether item is ethically sourced',
+        brand: 'empty',
+        category: ''
       };
   
       this.handleChange = this.handleChange.bind(this);
@@ -80,28 +82,41 @@ export class Search extends React.Component {
       }
 
       // make the http GET request to Rainforest API
-      const data = await axios.get('https://api.rainforestapi.com/request', { params })
-      .then(response => {
-        // print the JSON response from Rainforest API
-        var brand = response.data["product"]["brand"];
-        this.setState({brand: brand });
-        this.updateStuff();
-      }).catch(error => {
-        // catch and print the error
+    //   const data = await axios.get('https://api.rainforestapi.com/request', { params })
+    //   .then(response => {
+    //     // print the JSON response from Rainforest API
+    //     var brand = response.data["product"]["brand"];
+    //     var category = response.data["product"]["categories"][0]["name"];
+    //     console.log(category);
+    //     this.setState({category: category});
+    //     this.setState({brand: brand});
+    //     console.log("Inside thhe vent");
+    //     //console.log(this.state);
+    //     this.updateStuff();
+    //   }).catch(error => {
+    //     // catch and print the error
        
-      })
+    //   })
 
+    var brand = "Nike";
+    var category = "Shoes";
+    this.setState({category: category});
+    this.setState({brand: brand});
       // undefined 
-      return data; 
+      console.log("hi")
+      //return data; 
     }
     
     updateStuff() {
+        // check if company is ethical 
+        // brand name we get from api "visit nike store"
+        // if unethical array elem is substring of brand name 
       var brand = this.state.brand;
       var found = companies.some((company => 
         (brand.toLowerCase()).includes(company.toLowerCase())));
 
       if (found) {
-        this.setState({msg: "this comp is bad"}); 
+        this.setState({msg: "Unfortunately, this item was made using forced labor. Here are some alternatives"}); 
       }
       else {
         this.setState({msg: "this comp is chill"});
@@ -125,20 +140,24 @@ export class Search extends React.Component {
     render() {
      
       return (
-        <div>
-            <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Item URL:
-            <input type="text" value={this.state.value} onChange={this.handleChange} />
-          </label>
-          <input type="submit" value="Submit"/>
-          <Suggestion item={}></Suggestion>
-        </form>
-        </div>
-        <p >{this.state.msg}</p>
+        <div> 
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                Item URL:
+                <input type="text" value={this.state.value} onChange={this.handleChange} />
+              </label>
+              <input type="submit" value="Submit"/>
+            </form>
+          </div>
+          <p >{this.state.msg}</p>
+          <p>{this.state.category}</p>
+          <SuggestionFeed 
+            category='Shoe'
+            brand= {this.state.brand} />
+        
         </div>
       );
     }
 }
-
+  

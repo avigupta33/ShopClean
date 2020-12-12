@@ -1,0 +1,367 @@
+{
+"demo_message": "* Demo results are truncated for brevity *",
+"request_metadata": {
+  "amazon_url": "https://www.amazon.com/s/?k=micro+sd+card&ref=nb_sb_noss_2"
+},
+"request_parameters": {
+  "amazon_domain": "amazon.com",
+  "type": "search",
+  "search_term": "micro sd card",
+  "include_html": "true"
+},
+"search_results": [
+  {
+	 "position": 1,
+	 "title": "Amplim 2-Pack 16GB Micro SD Card Plus Adapter. 16 GB MicroSD Memory Card 100MB/s 667X V10 A1 U1 - Class 10 UHS-I 16G MicroSDHC TF Card for Cell Phones, Fire, Dashcam Camera, GoPro, DJI, Nintendo",
+	 "asin": "B07CMW9ZQ6",
+	 "link": "https://www.amazon.com/dp/B07CMW9ZQ6",
+	 "availability": {
+		"raw": "In stock on December 21, 2020."
+	 },
+	 "image": "https://m.media-amazon.com/images/I/71HkKob2FaL._AC_UY218_.jpg",
+	 "is_prime": false,
+	 "is_amazon_fresh": false,
+	 "is_whole_foods_market": false,
+	 "rating": 4.7,
+	 "ratings_total": 1437,
+	 "sponsored": true,
+	 "prices": [
+		{
+		  "symbol": "$",
+		  "value": 9.98,
+		  "currency": "USD",
+		  "raw": "$9.98"
+		}
+	 ],
+	 "price": {
+		"symbol": "$",
+		"value": 9.98,
+		"currency": "USD",
+		"raw": "$9.98"
+	 },
+	 "delivery": {
+		"price": {
+		  "raw": "FREE Shipping on orders over $25 shipped by Amazon",
+		  "symbol": "$",
+		  "currency": "USD",
+		  "value": 0,
+		  "is_free": true
+		}
+	 }
+  },
+  {
+	 "position": 2,
+	 "title": "256GB Micro SD Card Class 10 Memory Card High Speed Micro SD SDXC Card with SD Adapter (A-256GB)",
+	 "asin": "B08KZP933N",
+	 "link": "https://www.amazon.com/dp/B08KZP933N",
+	 "image": "https://m.media-amazon.com/images/I/610tFsNQrPL._AC_UY218_.jpg",
+	 "is_prime": true,
+	 "is_amazon_fresh": false,
+	 "is_whole_foods_market": false,
+	 "rating": 4.3,
+	 "ratings_total": 14,
+	 "sponsored": true,
+	 "prices": [
+		{
+		  "symbol": "$",
+		  "value": 19.99,
+		  "currency": "USD",
+		  "raw": "$19.99"
+		}
+	 ],
+	 "price": {
+		"symbol": "$",
+		"value": 19.99,
+		"currency": "USD",
+		"raw": "$19.99"
+	 },
+	 "delivery": {
+		"tagline": "Get it as soon as Tue, Dec 15",
+		"price": {
+		  "raw": "FREE Shipping on orders over $25 shipped by Amazon",
+		  "symbol": "$",
+		  "currency": "USD",
+		  "value": 0,
+		  "is_free": true
+		}
+	 }
+  },
+  {
+	 "position": 3,
+	 "title": "SAMSUNG: EVO Select 128GB MicroSDXC UHS-I U3 100MB/s Full HD & 4K UHD Memory Card with Adapter (MB-ME128HA)",
+	 "asin": "B0887GP791",
+	 "link": "https://www.amazon.com/dp/B0887GP791",
+	 "image": "https://m.media-amazon.com/images/I/81axmUuRHrL._AC_UY218_.jpg",
+	 "bestseller": {
+		"link": "https://www.amazon.com/gp/bestsellers/pc/3015433011/ref=sr_bs_2_3015433011_1",
+		"category": "Micro SD Memory Cards"
+	 },
+	 "is_prime": true,
+	 "is_amazon_fresh": false,
+	 "is_whole_foods_market": false,
+	 "rating": 4.8,
+	 "ratings_total": 72401,
+	 "sponsored": false,
+	 "prices": [
+		{
+		  "symbol": "$",
+		  "value": 15.99,
+		  "currency": "USD",
+		  "raw": "$15.99",
+		  "name": "primary"
+		},
+		{
+		  "symbol": "$",
+		  "value": 24.99,
+		  "currency": "USD",
+		  "raw": "$24.99",
+		  "name": "original"
+		}
+	 ],
+	 "price": {
+		"symbol": "$",
+		"value": 15.99,
+		"currency": "USD",
+		"raw": "$15.99",
+		"name": "primary"
+	 },
+	 "delivery": {
+		"tagline": "Get it as soon as Tue, Dec 15",
+		"price": {
+		  "raw": "FREE Shipping on orders over $25 shipped by Amazon",
+		  "symbol": "$",
+		  "currency": "USD",
+		  "value": 0,
+		  "is_free": true
+		}
+	 }
+  },
+  {
+	 "position": 4,
+	 "title": "SanDisk 128GB Ultra microSDXC UHS-I Memory Card with Adapter - 120MB/s, C10, U1, Full HD, A1, Micro SD Card - SDSQUA4-128G-GN6MA",
+	 "asin": "B08GYKNCCP",
+	 "link": "https://www.amazon.com/dp/B08GYKNCCP",
+	 "image": "https://m.media-amazon.com/images/I/81ti8lPxEjL._AC_UY218_.jpg",
+	 "is_prime": true,
+	 "is_amazon_fresh": false,
+	 "is_whole_foods_market": false,
+	 "rating": 4.8,
+	 "ratings_total": 3319,
+	 "sponsored": false,
+	 "prices": [
+		{
+		  "symbol": "$",
+		  "value": 19.99,
+		  "currency": "USD",
+		  "raw": "$19.99",
+		  "name": "primary"
+		},
+		{
+		  "symbol": "$",
+		  "value": 24.99,
+		  "currency": "USD",
+		  "raw": "$24.99",
+		  "name": "original"
+		}
+	 ],
+	 "price": {
+		"symbol": "$",
+		"value": 19.99,
+		"currency": "USD",
+		"raw": "$19.99",
+		"name": "primary"
+	 },
+	 "delivery": {
+		"tagline": "Get it as soon as Tue, Dec 15",
+		"price": {
+		  "raw": "FREE Shipping on orders over $25 shipped by Amazon",
+		  "symbol": "$",
+		  "currency": "USD",
+		  "value": 0,
+		  "is_free": true
+		}
+	 }
+  }
+],
+"refinements": {
+  "prime": [
+	 {
+		"name": "Free Shipping by Amazon",
+		"value": "p_76/1249137011"
+	 }
+  ],
+  "departments": [
+	 {
+		"name": "Memory Cards",
+		"value": "n/516866"
+	 },
+	 {
+		"name": "Micro SD Memory Cards",
+		"value": "n/3015433011"
+	 }
+  ],
+  "reviews": [
+	 {
+		"name": "4 Stars & Up",
+		"value": "p_72/1248879011"
+	 },
+	 {
+		"name": "3 Stars & Up",
+		"value": "p_72/1248880011"
+	 },
+	 {
+		"name": "2 Stars & Up",
+		"value": "p_72/1248881011"
+	 },
+	 {
+		"name": "1 Star & Up",
+		"value": "p_72/1248882011"
+	 }
+  ],
+  "price": [
+	 {
+		"name": "Under $25",
+		"value": "p_36/1253503011"
+	 },
+	 {
+		"name": "$25 to $50",
+		"value": "p_36/1253504011"
+	 },
+	 {
+		"name": "$50 to $100",
+		"value": "p_36/1253505011"
+	 },
+	 {
+		"name": "$100 to $200",
+		"value": "p_36/1253506011"
+	 },
+	 {
+		"name": "$200 & Above",
+		"value": "p_36/1253507011"
+	 },
+	 {
+		"name": "Today's Deals",
+		"value": "p_n_specials_match/21213697011"
+	 }
+  ],
+  "brand": [
+	 {
+		"name": "SanDisk",
+		"value": "p_89/SanDisk"
+	 },
+	 {
+		"name": "Kingston",
+		"value": "p_89/Kingston"
+	 },
+	 {
+		"name": "SAMSUNG",
+		"value": "p_89/SAMSUNG"
+	 },
+	 {
+		"name": "PNY",
+		"value": "p_89/PNY"
+	 },
+	 {
+		"name": "Gigastone",
+		"value": "p_89/Gigastone"
+	 },
+	 {
+		"name": "Inland",
+		"value": "p_89/Inland"
+	 },
+	 {
+		"name": "SP Silicon Power",
+		"value": "p_89/SP Silicon Power"
+	 },
+	 {
+		"name": "KEXIN",
+		"value": "p_89/KEXIN"
+	 },
+	 {
+		"name": "KOOTION",
+		"value": "p_89/KOOTION"
+	 },
+	 {
+		"name": "PIONEER",
+		"value": "p_89/PIONEER"
+	 }
+  ],
+  "high_capacity_memory_cards": [
+	 {
+		"name": "8 GB & Under",
+		"value": "p_n_feature_two_browse-bin/6518302011"
+	 },
+	 {
+		"name": "16 GB",
+		"value": "p_n_feature_two_browse-bin/6518303011"
+	 },
+	 {
+		"name": "32 GB",
+		"value": "p_n_feature_two_browse-bin/6518304011"
+	 },
+	 {
+		"name": "64 GB",
+		"value": "p_n_feature_two_browse-bin/6518305011"
+	 },
+	 {
+		"name": "128 GB",
+		"value": "p_n_feature_two_browse-bin/13203834011"
+	 },
+	 {
+		"name": "200 GB & Up",
+		"value": "p_n_feature_two_browse-bin/13203835011"
+	 }
+  ],
+  "from_our_brands": [
+	 {
+		"name": "Our Brands",
+		"value": "p_n_feature_forty-seven_browse-bin/21180942011"
+	 }
+  ],
+  "packaging_option": [
+	 {
+		"name": "Frustration-Free Packaging",
+		"value": "p_n_is_ffp/7252855011"
+	 }
+  ],
+  "new_and_upcoming": [
+	 {
+		"name": "New Arrivals",
+		"value": "p_n_date/1249033011"
+	 }
+  ],
+  "certification": [
+	 {
+		"name": "Energy Star",
+		"value": "p_n_special_merchandising_browse-bin/544495011"
+	 }
+  ],
+  "amazon_global_store": [
+	 {
+		"name": "Amazon Global Store",
+		"value": "p_n_global_store_origin_marketplace/16354393011"
+	 }
+  ],
+  "international_shipping": [
+	 {
+		"name": "International Shipping Eligible",
+		"value": "p_n_shipping_option-bin/3242350011"
+	 }
+  ],
+  "condition": [
+	 {
+		"name": "New",
+		"value": "p_n_condition-type/2224371011"
+	 },
+	 {
+		"name": "Used",
+		"value": "p_n_condition-type/2224373011"
+	 }
+  ]
+},
+"pagination": {
+  "total_results": 1000,
+  "current_page": 1,
+  "total_pages": 20
+}
+}

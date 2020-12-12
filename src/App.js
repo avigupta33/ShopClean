@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import logo from './shopcleanlogo.png';
 import './App.css';
 import { Search } from './Search';
 
@@ -8,9 +8,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h1 className="shopCleanHead">
+          shop clean 
+        </h1>
         <Search></Search>
         
       </header>
