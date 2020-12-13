@@ -4,8 +4,9 @@
 
 import React from 'react';
 import Suggestion from './Suggestion';
-import sample from './data/sample_output.json'
-import { Carousel, Image } from '@fluentui/react-northstar'
+import sample from './data/sample_output.json';
+import './Suggestion.css';
+import { Carousel, Image } from '@fluentui/react-northstar';
 
 // TODO 
 
@@ -281,7 +282,7 @@ class SuggestionFeed extends React.Component {
 //       }
 //   }
 
-    componentDidUpdate() {
+    componentDidMount(){
       console.log("Category" + this.props.category);
       console.log("Giant Data " + this.state.giantData);
       if( this.state.giantData == "") {
@@ -341,7 +342,8 @@ class SuggestionFeed extends React.Component {
         return (
 
           <div>
-            <h2>Here's a few sustainable product we suggest as an alternative</h2>
+            <h2>The current item is made using some form of forced labor. 
+              Here are a few suggested alternatives. </h2>
             {list}
           </div>
         );

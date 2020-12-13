@@ -198,7 +198,17 @@ export class Search extends React.Component {
         </div> */}
 
       return(
-        <SuggestionFeed category={this.state.category} brand={this.state.brand} companies={companies}/>
+        <div>
+          { this.state.findSuggestion == true && 
+            <SuggestionFeed 
+              category={this.state.category} 
+              brand={this.state.brand} 
+              companies={companies}/> 
+          }
+          {this.state.findSuggestion == false &&
+          <h1> This product is ethically sourced—shop away! </h1>}
+        </div>
+        /*<SuggestionFeed category={this.state.category} brand={this.state.brand} companies={companies}/>*/
         
       );
   }

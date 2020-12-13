@@ -22,13 +22,13 @@ class Suggestion extends React.Component {
         return (
             <div className="wrapper">
             <div className="itemDiv">
+                <a href={this.props.link} target="_blank"> 
                     <div>
-                        <a href={this.props.link} target="_blank"> 
-                            <h1 className="ItemTitle"> {this.props.title} </h1>
-                        </a>
+                        <h1 className="ItemTitle"> {this.props.title} </h1>
                         <img src={this.props.url} className="previewImg"/>
-                        <h2>{this.props.price} </h2>
+                        <h2 className="priceTitle">{this.props.price} </h2>
                     </div>
+                </a>
             </div>
             </div>
         );

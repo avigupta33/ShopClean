@@ -4,39 +4,47 @@
 
 h1 {
     color: white;
-
 }
 
 h2 {
  color: white;
 }
 
-
 .ItemTitle {
     font-family: Lato;
-    color: #95CC29;
-
+    color: #707070;
+    
 }
 
 .priceTitle {
-    color: #A8E62E;
+    color: #707070;
 }
 
 .previewImg {
     max-height: 175px;
     max-width: 250px;;
     width: auto;
-
 }
 
 .itemDiv {
-    width: 500px;
+    width: 90%;
+    margin: auto;
     text-align: center;
-    
 }
+
+.itemDiv:hover {
+    text-decoration: underline;
+    text-decoration-color: lightslategray;
+    border: 5px	#707070 solid ;
+    padding: 2px;
+ }
+ 
+
 .wrapper {
     display: flex;
     justify-content: center;
+    width: 90%;
+    margin: auto;
     
 }
 
