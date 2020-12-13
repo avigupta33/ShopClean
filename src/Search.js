@@ -1,3 +1,4 @@
+/*global chrome*/
 import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
@@ -86,6 +87,7 @@ export class Search extends React.Component {
         api_key: "541AA8716959427CAFC720D5B7149B78",
         type: "product",
         url: this.state.value,
+        //url:this.props.url,
       }
 
       // solution
@@ -136,38 +138,14 @@ export class Search extends React.Component {
     }
 
     handleSubmit(event) {
-        
+        console.log(this.props.url);
         if(this.state.value !== '' || this.state.value !== undefined)
         {
             var result = this.getData();
             event.preventDefault();
         }
         
-    }
-    
-   
-    // componentDidUpdate() {
-    //   console.log(this.state.msg);
-    // }
-    //TODO: compnent, states, suggest 5 item, feed component,
-    // TODO(NEXT): Shop Suggestions:
-    // suggest 5 items
-    // Fetch 'em from rainforest api
-    // Make whole new component
-
-    // componentDidMount(){
-    //   console.log("hi")
-    //   console.log(window.location.href)
-
-    // //   chrome.tabs.getSelected(null,function(tab) {
-    // //     var tablink = tab.url;
-    // // });
-    // //   chrome.tabs.query({active: true, lastFocusedWindow: true}, tabs => {
-    // //     let url = tabs[0].url;
-    // //     // use `url` here inside the callback because it's asynchronous!
-    // // });  
-  // }
-
+    } 
 
     render() {
 
