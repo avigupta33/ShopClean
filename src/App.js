@@ -7,10 +7,6 @@ import { Search } from './Search';
 
 function App() {
   const [itemURL, setURL] = useState("");
-  /* get current tab url and set url state to resultant url */
-  useEffect(() => {
-    chrome.runtime.sendMessage({type: 'popupInit'}, setURL);
-  }, []);
 
   return (
     <div className="App">
@@ -19,8 +15,7 @@ function App() {
         <h1 className="shopCleanHead">
           Shop Clean 
         </h1>
-        <Search 
-          item_url = {itemURL}/>
+        <Search />
         
       </header>
     </div>

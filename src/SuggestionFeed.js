@@ -218,62 +218,54 @@ class SuggestionFeed extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        giantData: bigSampleData.search_results,
+        giantData: []
       };
     }
     
-    manipulateData() {
-        console.log(this.state.giantData);
-        console.log(this.state.giantData[0]);
-
-    }
+    // manipulateData() {
+    //     console.log(this.state.giantData);
+    //     console.log(this.state.giantData[0]);
+    // }
 
 	async getData() {
-        // const axios = require('axios');
-        // console.log("Setting state");
-        
-        // // await this.setState({giantData: bigSampleData.search_results});
-        
-        // // console.log(this.state.giantData[0].title)
-
-        // ///
-
-        // console.log("THIS IS VEYR IMPORTANT");
-        // console.log("THIS IS VEYR IMPORTANT");
-        // console.log(this.props.category);
-
-        // if(this.props.category != ''){
-        //     // set up the request parameters
-		// const params = {
-		// 	api_key: "541AA8716959427CAFC720D5B7149B78",
-		// 	amazon_domain: "amazon.com",
-		// 	type: "search",
-		// 	search_term: ("sustainable " + (this.props.category))
-		// }
-	
-		// // make the http GET request to Rainforest API
-		// const data = await axios.get('https://api.rainforestapi.com/request', { params })
-	  	// 	.then(response => {
-		// 		// print the JSON response from Rainforest API
-        //         console.log(JSON.stringify(response.data, 0, 2));
-		// 		var results = response.data["search_results"];
-		// 		this.setState({giantData: results});
-        //         this.manipulateData();
-			
-		// 	}).catch(error => {
-		// 		// catch and print the error
-		// 		console.log(error);
-        // 	});
+        const axios = require('axios');
+        console.log("Setting state");
         
 
-        //     this.manipulateData();
+        console.log("THIS IS VEYR IMPORTANT");
+        console.log("THIS IS VEYR IMPORTANT");
+        console.log(this.props.category);
 
-        // } 
+        if (this.props.category != ''){
+            // set up the request parameters
+          const params = {
+            api_key: "541AA8716959427CAFC720D5B7149B78",
+            amazon_domain: "amazon.com",
+            type: "search",
+            search_term: ("sustainable " + (this.props.category))
+          }
+    
+          // make the http GET request to Rainforest API
+          const data = await axios.get('https://api.rainforestapi.com/request', { params })
+              .then(response => {
+              // print the JSON response from Rainforest API
+              //console.log(JSON.stringify(response.data, 0, 2));
+              var results = response.data["search_results"];
+              this.setState({giantData: results});
+              console.log("result dataaaaa");
+                      //this.manipulateData();
+            
+            }).catch(error => {
+              // catch and print the error
+              console.log(error);
+                });
+              
 
-        //this.setState({giantData: bigSampleData});
-		
+                  //this.manipulateData();
+
+        } 
   }
-  //Removes unethical products from list
+// Removes unethical products from list
 //   filterData() { 
 //     this.state.giantData.forEach((item, index) => { 
 //       var found = this.props.some((company => 
@@ -289,69 +281,69 @@ class SuggestionFeed extends React.Component {
 //       }
 //   }
 
-    componentDidUpdate() 
-    {
-        // if((this.props.category !== '' || this.props.category !== undefined) 
-        //   && this.state.giantData == [])
-        // {
-        //     this.getData();
-        // }
-        
-
-        this.setState({giantData: bigSampleData.search_results});
-        console.log(this.state.giantData)
-    
+    componentDidUpdate() {
+      console.log("Category" + this.props.category);
+      console.log("Giant Data " + this.state.giantData);
+      if( this.state.giantData == "") {
+          console.log("INSIDE THE GIANT DATAAA");
+          this.getData();
+      }
     }
     
-    shortenLength(inputString)
-    {
-        if(inputString.length < 60 )
+    shortenLength(inputString) {
+        if(inputString.length >= 60 )
         {
-            return;
+          inputString = inputString.slice(0,59);
+          inputString += "...";
         }
-        inputString.length = 60;
-        inputString += "...";
-
+        return inputString; 
     }
-
-
 
     render() {
-		var list = this.state.giantData.map((object) => {
-            if(object.price[0] == undefined || object.price == undefined || object.price[0].value == undefined) {
-              return(
-                <div key={object.position}>
-                  <p>{object.position}</p>
-                            <Suggestion url={object.image} title={object.title} price={object.prices[0].value} link={object.link}/>
-                </div>
-              )
-            } else {
-                return(
-                    <div key={object.position}>
-                        <p>{object.position}</p>
-                        <Suggestion url={object.image} title={object.title} price={"none available"} link={object.link}/>
-                    </div>
-                )
-            }
-		})
-        // pass hard coded data for now
-        return (
-          <Carousel
-          circular
-          ariaRoleDescription="carousel"
-          ariaLabel="Portrait collection"
-          navigation={{
-            'aria-label': 'people portraits',
-            items: list.map((item, index) => ({
-              key: index,
-              'aria-controls': item.id,
-              'aria-label': item.key,
-            })),
-          }}
-          items={list}
-          getItemPositionText={(index, size) => `${index + 1} of ${size}`}
-          />
+        console.log("In SuggestionFeed Render dunction wooooooooo");
+        console.log(this.state.giantData);
+        var list = this.state.giantData.map((object) => {
+          var shortenTitle = this.shortenLength(object.title);
+          var costPrice;
 
+          if (typeof(object.prices) == "undefined" ||
+              typeof(object.prices[0]) == "undefined" ||
+              typeof(object.prices[0].value) == "undefined")
+          {
+              costPrice = "No price avaliable";
+          } else {
+            costPrice = '$' + (Math.ceil(parseFloat(object.prices[0].value) * 100)/100).toString();
+            //costPrice = object.prices[0].value;
+          }
+            return(
+                <div key={object.position}>
+                    <Suggestion url={object.image} title={shortenTitle} price={costPrice} link={object.link}/>
+                </div>
+            );
+         });
+        // pass hard coded data for now
+        // <Carousel
+          //   circular
+          //   ariaRoleDescription="carousel"
+          //   ariaLabel="Portrait collection"
+          //   navigation={{
+          //     'aria-label': 'people portraits',
+          //     items: list.map((item, index) => ({
+          //       key: index,
+          //       'aria-controls': item.id,
+          //       'aria-label': item.key,
+          //     })),
+          //   }}
+          //   items={list}
+          //   getItemPositionText={(index, size) => `${index + 1} of ${size}`}
+          // />
+          console.log(list);
+        return (
+
+          <div>
+            <h2>Here's a few sustainable product we suggest as an alternative</h2>
+            {list}
+          </div>
         );
     }
 }

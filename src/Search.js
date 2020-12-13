@@ -2,6 +2,7 @@
 import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
+//import companies from './data/companies.json'
 
 
 var officialmsg= 'Deafult';
@@ -65,29 +66,55 @@ export class Search extends React.Component {
         value: '', 
         msg: 'placeholder text. this text states whether item is ethically sourced',
         brand: 'empty',
-        category: ''
+        category: '',
+        url: '',
+        findSuggestion: false
       };
   
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+      //this.handleChange = this.handleChange.bind(this);
+      //this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-      this.setState({value: event.target.value});
+    //handleChange(event) {
+    //  this.setState({value: event.target.value});
+    //}
+
+    // getting the url from chrome browser
+    componentDidMount() {
+      chrome.tabs.query({
+        active: true,
+        currentWindow: true
+      },
+      (tabs) => {
+        console.log("NANIII ", tabs[0].url);
+        this.setState({url: tabs[0].url}); 
+        this.getData(tabs[0].url);
+      });
+      
+      // check if this.state.url is goodd 
+
+
+      // get data and run!! 
+      // if (this.state.url !== '' ) {
+      //     console.log(" THERE SHOULD BE A URL IN STATE ", this.state.url);
+      //     console.log("running get data");
+      //     var result = this.getData();
+      //     // event.preventDefault();
+      // }
     }
 
-    
 
-    async getData() {
+    async getData(givenURL) {
       // prints the brand to console  using link 
       const axios = require('axios');
+      console.log("getDataURL ", givenURL);
 
       // set up the request parameters
       const params = {
         api_key: "541AA8716959427CAFC720D5B7149B78",
         type: "product",
-        url: this.state.value,
-        //url:this.props.url,
+        //url: this.state.value,
+        url: givenURL
       }
 
       // solution
@@ -109,7 +136,6 @@ export class Search extends React.Component {
         this.updateStuff();
       }).catch(error => {
         // catch and print the error
-       
       })
 
     // var brand = "Nike";
@@ -117,7 +143,7 @@ export class Search extends React.Component {
     // this.setState({category: category});
     // this.setState({brand: brand});
       // undefined 
-      console.log("hi")
+      console.log("Stuff Should've dunhappened by now")
       //return data; 
     }
     
@@ -130,13 +156,20 @@ export class Search extends React.Component {
         (brand.toLowerCase()).includes(company.toLowerCase())));
 
       if (found) {
-        this.setState({msg: "Unfortunately, this item was made using forced labor. Here are some alternatives"}); 
+        this.setState({
+          msg: "Unfortunately, this item was made using forced labor. Here are some alternatives",
+          findSuggestion: true  
+        }); 
       }
       else {
-        this.setState({msg: "this comp is chill"});
+        this.setState({
+          msg: "this comp is chill",
+          findSuggestion: false  
+        });
       }
     }
 
+    // unecesasary we aren't using form anymore 
     handleSubmit(event) {
         console.log(this.props.url);
         if(this.state.value !== '' || this.state.value !== undefined)
@@ -148,29 +181,26 @@ export class Search extends React.Component {
     } 
 
     render() {
+      console.log("in the render function");
+      console.log(this.state.findSuggestion)
+    
+{/* <div>
+            { (this.state.category == true) ? (
+                <SuggestionFeed category={this.state.category}
+                  brand={this.state.brand}
+                  companies={companies}
+            />
+            ) : (
+              <h1>Ethical Company Wooohoooooooooooo</h1>
+            )
 
+            }
+        </div> */}
 
-     
-      return (
-        <div> 
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                Item URL:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Submit"/>
-            </form>
-          </div>
-          <p >{this.state.msg}</p>
-          <p>{this.state.category}</p>
-          <SuggestionFeed 
-            category={this.state.category}
-            brand= {this.state.brand}
-            companies= {companies}/>
+      return(
+        <SuggestionFeed category={this.state.category} brand={this.state.brand} companies={companies}/>
         
-        </div>
       );
-    }
+  }
 }
-  
+
