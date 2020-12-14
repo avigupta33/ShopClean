@@ -1,5 +1,5 @@
 # Shop Clean
-###  HackOff 3 Project: A browser extension to encourage and enable ethical shopping 
+###  A browser extension to encourage and enable ethical shopping | Submitted to HackOff 3 Hackathon
 
 <img src="http://g.recordit.co/f5J1tW8Rbd.gif" width=700><br>
 
