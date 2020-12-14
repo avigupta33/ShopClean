@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 
-# src/Constants.js
-# public/manijest.json
+src/Constants.js
+public/manijest.json
