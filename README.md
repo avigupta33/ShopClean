@@ -22,6 +22,9 @@ NOTE: You may need to update the manifest.json file with the custom security cod
 
 ## Contributors
 [Safiyah Lakhany](https://github.com/safiyahlakhany)
+
 [Kenny Oseleononmen](https://github.com/Kenny1G)
+
 [Lauren Ng](https://github.com/laurenng)
+
 [Avi Gupta](https://github.com/avigupta33)
