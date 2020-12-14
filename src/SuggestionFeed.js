@@ -5,7 +5,7 @@
 import React from 'react';
 import Suggestion from './Suggestion';
 import sample from './data/sample_output.json';
-import API_KEY from '../common/Constants.js';
+import API_KEY from './Constants.js';
 import './Suggestion.css';
 import { Carousel, Image } from '@fluentui/react-northstar';
 

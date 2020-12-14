@@ -2,7 +2,7 @@
 import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
-import API_KEY from '../common/Constants.js';
+import API_KEY from './Constants.js';
 //import companies from './data/companies.json'
 
 
@@ -162,7 +162,8 @@ export class Search extends React.Component {
 
     render() {
       console.log("in the render function");
-      console.log(this.state.findSuggestion)
+      console.log(this.state.findSuggestion);
+      console.log("The API KEY is..", API_KEY);
 
       return(
         <div>

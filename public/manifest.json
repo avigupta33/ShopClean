@@ -20,7 +20,7 @@
 
 
   "description": "A plain text description",
-  "content_security_policy": "script-src 'self' 'sha256-P/fEwHfHYtpfuCDadxIk0NpxHS0Za6QccfJrEZ51R+s='; object-src 'self'",  
+  "content_security_policy": "script-src 'self' 'sha...<INSERT CODE HERE>'; object-src 'self'",  
   "permissions": [ "tabs"
   ]
 }
