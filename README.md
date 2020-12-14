@@ -1,7 +1,9 @@
 # Shop Clean
+###  A browser extension to encourage and enable ethical shopping | Submitted to HackOff 3 Hackathon
 
-## Tagline
-Ethical Shopping for the 21st Century
+<img src="http://g.recordit.co/f5J1tW8Rbd.gif" width=700><br>
+
+
 
 ## Problem
 Despite the rapidly growing prevalence of online shopping, it is difficult for consumers to know whether the products they're spending their hard-earned money on are made ethically. For example, many reputable brands, including Nike and Adidas, sell products made with forced Uyghur labor in China.
