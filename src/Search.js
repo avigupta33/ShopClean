@@ -2,6 +2,7 @@
 import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
+import API_KEY from '../common/Constants.js';
 //import companies from './data/companies.json'
 
 
@@ -70,14 +71,7 @@ export class Search extends React.Component {
         url: '',
         findSuggestion: false
       };
-  
-      //this.handleChange = this.handleChange.bind(this);
-      //this.handleSubmit = this.handleSubmit.bind(this);
     }
-
-    //handleChange(event) {
-    //  this.setState({value: event.target.value});
-    //}
 
     // getting the url from chrome browser
     componentDidMount() {
@@ -93,14 +87,6 @@ export class Search extends React.Component {
       
       // check if this.state.url is goodd 
 
-
-      // get data and run!! 
-      // if (this.state.url !== '' ) {
-      //     console.log(" THERE SHOULD BE A URL IN STATE ", this.state.url);
-      //     console.log("running get data");
-      //     var result = this.getData();
-      //     // event.preventDefault();
-      // }
     }
 
 
@@ -111,9 +97,8 @@ export class Search extends React.Component {
 
       // set up the request parameters
       const params = {
-        api_key: "541AA8716959427CAFC720D5B7149B78",
+        api_key: API_KEY,
         type: "product",
-        //url: this.state.value,
         url: givenURL
       }
 
@@ -138,13 +123,8 @@ export class Search extends React.Component {
         // catch and print the error
       })
 
-    // var brand = "Nike";
-    // var category = "Shoes";
-    // this.setState({category: category});
-    // this.setState({brand: brand});
-      // undefined 
+    
       console.log("Stuff Should've dunhappened by now")
-      //return data; 
     }
     
     updateStuff() {
@@ -183,19 +163,6 @@ export class Search extends React.Component {
     render() {
       console.log("in the render function");
       console.log(this.state.findSuggestion)
-    
-{/* <div>
-            { (this.state.category == true) ? (
-                <SuggestionFeed category={this.state.category}
-                  brand={this.state.brand}
-                  companies={companies}
-            />
-            ) : (
-              <h1>Ethical Company Wooohoooooooooooo</h1>
-            )
-
-            }
-        </div> */}
 
       return(
         <div>
@@ -206,9 +173,8 @@ export class Search extends React.Component {
               companies={companies}/> 
           }
           {this.state.findSuggestion == false &&
-          <h1> This product is ethically sourced—shop away! </h1>}
+          <h1 className="ethicalText"> This product is ethically sourced—shop away! </h1>}
         </div>
-        /*<SuggestionFeed category={this.state.category} brand={this.state.brand} companies={companies}/>*/
         
       );
   }
