@@ -1,4 +1,5 @@
-# Shop Clean - HackOff 3Project
+# Shop Clean
+###  HackOff 3 Project
 
 <img src="http://g.recordit.co/f5J1tW8Rbd.gif" width=700><br>
 
