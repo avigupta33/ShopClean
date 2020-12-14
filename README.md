@@ -1,5 +1,7 @@
 # Shop Clean
 
+<img src="http://g.recordit.co/f5J1tW8Rbd.gif" width=500><br>
+
 ## Tagline
 Ethical Shopping for the 21st Century
 
