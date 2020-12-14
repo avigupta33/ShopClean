@@ -1,9 +1,8 @@
-# Shop Clean
+# Shop Clean - HackOff 3Project
 
 <img src="http://g.recordit.co/f5J1tW8Rbd.gif" width=700><br>
 
-## Tagline
-Ethical Shopping for the 21st Century
+
 
 ## Problem
 Despite the rapidly growing prevalence of online shopping, it is difficult for consumers to know whether the products they're spending their hard-earned money on are made ethically. For example, many reputable brands, including Nike and Adidas, sell products made with forced Uyghur labor in China.
