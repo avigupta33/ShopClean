@@ -16,11 +16,10 @@ We encountered many challenges in the development of this project. One key chall
 
 ## Build Instructions (Google Chrome)
 1. Run `npm install`
-2. Type your Rainforest API key in the Search.js file
+2. Edit the Constants.js file to include your Rainforest API key and edit the manifest.json file to include your chrome extension security hash.
 3. Run `npm run build`
 4. Navigate to chrome://extensions/
 5. Press `load unpacked` and select the build folder. You can run the browser extension now!
-NOTE: You may need to update the manifest.json file with the custom security code given to you by chrome extensions.
 
 ## Contributors
 [Safiyah Lakhany](https://github.com/safiyahlakhany)
