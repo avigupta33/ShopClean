@@ -3,13 +3,8 @@ import React from 'react';
 import Suggestion from './Suggestion.js';
 import SuggestionFeed from './SuggestionFeed.js';
 import API_KEY from './Constants.js';
-//import companies from './data/companies.json'
 
 
-var officialmsg= 'Deafult';
-var targetCategories = [
-
-]
 var companies = ['Acer',
     'Adidas',
     'Alstom',
@@ -80,7 +75,6 @@ export class Search extends React.Component {
         currentWindow: true
       },
       (tabs) => {
-        console.log("NANIII ", tabs[0].url);
         this.setState({url: tabs[0].url}); 
         this.getData(tabs[0].url);
       });
@@ -102,35 +96,27 @@ export class Search extends React.Component {
         url: givenURL
       }
 
-      // solution
-      // onload get active url javascript
 
 
       // make the http GET request to Rainforest API
       const data = await axios.get('https://api.rainforestapi.com/request', { params })
       .then(response => {
-        // print the JSON response from Rainforest API
         var brand = response.data["product"]["brand"];
         var categories = response.data["product"]["categories"];
         var category = categories[categories.length - 1]["name"];
-        console.log(category);
         this.setState({category: category});
         this.setState({brand: brand});
-        console.log("Inside thhe vent");
-        //console.log(this.state);
         this.updateStuff();
       }).catch(error => {
         // catch and print the error
-      })
+        console.log(error);
+      });
 
-    
-      console.log("Stuff Should've dunhappened by now")
+  
     }
     
     updateStuff() {
-        // check if company is ethical 
-        // brand name we get from api "visit nike store"
-        // if unethical array elem is substring of brand name 
+        
       var brand = this.state.brand;
       var found = companies.some((company => 
         (brand.toLowerCase()).includes(company.toLowerCase())));
@@ -149,16 +135,6 @@ export class Search extends React.Component {
       }
     }
 
-    // unecesasary we aren't using form anymore 
-    handleSubmit(event) {
-        console.log(this.props.url);
-        if(this.state.value !== '' || this.state.value !== undefined)
-        {
-            var result = this.getData();
-            event.preventDefault();
-        }
-        
-    } 
 
     render() {
       console.log("in the render function");

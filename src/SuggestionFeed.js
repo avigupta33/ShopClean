@@ -10,25 +10,6 @@ import './Suggestion.css';
 import { Carousel, Image } from '@fluentui/react-northstar';
 
 
-// suggesstion props structure
-// props {
-//     imageUrl: '', [0].image,
-// /     link: [0].link,
-//     title: '', [0].title
-//     price: '', [0].ratings
-    
-// }
-
-
-
-// props structure
-// props {
-//     url: '',
-//     title: '', 
-//     price: ''
-    
-// }
-
 class SuggestionFeed extends React.Component {
     constructor(props) {
       super(props);
@@ -60,28 +41,19 @@ class SuggestionFeed extends React.Component {
           const data = await axios.get('https://api.rainforestapi.com/request', { params })
               .then(response => {
               // print the JSON response from Rainforest API
-              //console.log(JSON.stringify(response.data, 0, 2));
               var results = response.data["search_results"];
               this.setState({giantData: results});
-              console.log("result dataaaaa");
-                      //this.manipulateData();
             
             }).catch(error => {
               // catch and print the error
               console.log(error);
                 });
-              
-
-                  //this.manipulateData();
 
         } 
   }
 
     componentDidMount(){
-      console.log("Category" + this.props.category);
-      console.log("Giant Data " + this.state.giantData);
       if( this.state.giantData == "") {
-          console.log("INSIDE THE GIANT DATAAA");
           this.getData();
       }
     }
@@ -96,8 +68,7 @@ class SuggestionFeed extends React.Component {
     }
 
     render() {
-        console.log("In SuggestionFeed Render dunction wooooooooo");
-        console.log(this.state.giantData);
+        
         var list = this.state.giantData.map((object) => {
           var shortenTitle = this.shortenLength(object.title);
           var costPrice;
@@ -118,7 +89,6 @@ class SuggestionFeed extends React.Component {
             );
          });
         
-          console.log(list);
         return (
 
           <div>

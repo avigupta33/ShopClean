@@ -1,15 +1,7 @@
-// passed the image, text, and caption, displays it 
-// props
 import React from 'react';
 import './Suggestion.css';
 
-// props structure
-// props {
-//     url: '',
-//     title: '', 
-//     price: ''
-    
-// }
+
 class Suggestion extends React.Component {
     constructor(props) {
       super(props);
